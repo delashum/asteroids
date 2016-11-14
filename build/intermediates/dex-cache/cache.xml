@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-19.1.0_87596918c5f945d131f343d55546b42107145e23.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\libs\json-simple-1.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5">
+        <dex dex="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\build\intermediates\pre-dexed\debug\json-simple-1.1.1_58e868d19ead3a4f8b859f579ea058f703935ab6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jacob\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_eb2cda350474efabf1e2d035702e64a8899c6d60.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jacob\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Jacob\Desktop\School\240\Asteroids\SuperAsteroids\app\build\intermediates\pre-dexed\debug\gson-2.7_f8ad933714bb02786bcff6644aacfaf653ba4752.jar" />
+    </item>
+
+</items>
