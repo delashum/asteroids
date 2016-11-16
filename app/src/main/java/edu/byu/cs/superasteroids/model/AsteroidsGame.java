@@ -52,15 +52,15 @@ public class AsteroidsGame {
     }
 
     public Asteroid getAsteroid(int id) {
-        return asteroids.get(id);
+        return asteroids.get(id-1);
     }
 
     public int getObjectImage(int id) {
-        return objectImage.get(id);
+        return objectImage.get(id-1);
     }
 
     public int getAsteroidImage(int id) {
-        return asteroidImage.get(id);
+        return asteroids.get(id).getId();
     }
 
     public void addObjectImage(int id) {

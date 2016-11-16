@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.byu.cs.superasteroids.asteroids_game.MainGame;
+import edu.byu.cs.superasteroids.content.AudioManagement;
 import edu.byu.cs.superasteroids.content.ContentManager;
 import edu.byu.cs.superasteroids.importer.IGameDataImporter;
 import edu.byu.cs.superasteroids.model.Asteroid;
@@ -47,7 +48,7 @@ public class GameDelegate implements IGameDelegate {
 
         //load map objects
         for (Asteroid e : model.getAsteroids()) {
-            model.addAsteroidImage(content.loadImage(e.getImage()));
+            e.setId(content.loadImage(e.getImage()));
         }
 
         for (String e : model.getObjects()) {
@@ -55,6 +56,16 @@ public class GameDelegate implements IGameDelegate {
         }
 
         game.setBackground(content.loadImage("images/space.bmp"));
+
+        game.setAttack(content.loadImage(ship.getCannon().getAttackImage()));
+        try {
+            game.setAttackSound(content.loadSound(ship.getCannon().getAttackSound()));
+        } catch(Exception e) {
+
+        }
+
+        game.contentLoaded();
+
     }
 
     @Override

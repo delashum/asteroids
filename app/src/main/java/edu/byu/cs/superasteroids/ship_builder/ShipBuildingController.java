@@ -1,5 +1,7 @@
 package edu.byu.cs.superasteroids.ship_builder;
 
+import android.graphics.PointF;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +35,7 @@ public class ShipBuildingController implements IShipBuildingController {
         SingletonModel model = SingletonModel.getInstance();
         game = model.getGame();
         myShip = new Ship();
+        myShip.setScale(0.3f);
 
         descriptionMap = new HashMap<>();
         descriptionMap.put(IShipBuildingView.PartSelectionView.MAIN_BODY, "Main Body");
@@ -138,11 +141,15 @@ public class ShipBuildingController implements IShipBuildingController {
         view.setArrow(partView, IShipBuildingView.ViewDirection.DOWN, false, "");
         view.setArrow(partView, IShipBuildingView.ViewDirection.LEFT, true, descriptionMap.get(CalcView(IShipBuildingView.ViewDirection.LEFT)));
         view.setArrow(partView, IShipBuildingView.ViewDirection.RIGHT, true, descriptionMap.get(CalcView(IShipBuildingView.ViewDirection.RIGHT)));
+
+        view.setStartGameButton(myShip.full());
+
     }
 
     @Override
     public void update(double elapsedTime) {
-        myShip.setRotation(myShip.getRotation() + 0.5f);
+        myShip.setRotation(myShip.getRotation() + 0.5);
+        myShip.update(new PointF(DrawingHelper.getGameViewWidth()/2,DrawingHelper.getGameViewHeight() - 150),elapsedTime);
     }
 
     public void draw() {
@@ -175,7 +182,6 @@ public class ShipBuildingController implements IShipBuildingController {
             case EXTRA_PART: myShip.setExtrapart(game.getExtraParts().get(index)); break;
         }
 
-        view.setStartGameButton(myShip.full());
     }
 
     @Override

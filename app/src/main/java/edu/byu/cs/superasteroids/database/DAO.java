@@ -86,7 +86,11 @@ public class DAO {
 
     public AsteroidsGame getGameData() {
         if (game == null) {
-            game = this.getFromDB();
+            try {
+                game = this.getFromDB();
+            } catch(Exception e) {
+                manager.CreateDB(db);
+            }
         }
         return game;
     }
@@ -107,9 +111,9 @@ public class DAO {
         orderedTables.add("powercore");
 
         for (String e : orderedTables) {
-            Cursor cursor = db.rawQuery("SELECT * FROM " + e,null);
 
-            cursor.moveToFirst();
+                Cursor cursor = db.rawQuery("SELECT * FROM " + e,null);
+                cursor.moveToFirst();
 
             switch(e) {
                 case "asteroid" :
@@ -294,7 +298,7 @@ public class DAO {
     private void InsertObject(String obj) {
         ContentValues values = new ContentValues();
         values.put("image",obj);
-        db.insert("object", null, values);
+        db.insertOrThrow("object", null, values);
     }
 
     private String getObject(Cursor cur) {
@@ -308,7 +312,7 @@ public class DAO {
         values.put("imagewidth",obj.getImageWidth());
         values.put("imageHeight",obj.getImageHeight());
         values.put("type",obj.getType());
-        db.insert("asteroid", null, values);
+        db.insertOrThrow("asteroid", null, values);
     }
 
     private void InsertLevel(Level obj) {
@@ -318,7 +322,7 @@ public class DAO {
         values.put("width",obj.getWidth());
         values.put("height",obj.getHeight());
         values.put("music",obj.getMusic());
-        db.insert("level", null, values);
+        db.insertOrThrow("level", null, values);
     }
 
     private void InsertMainBody(MainBody obj) {
@@ -329,7 +333,7 @@ public class DAO {
         values.put("cannonAttach",obj.getCannonAttach());
         values.put("engineAttach",obj.getEngineAttach());
         values.put("extraAttach",obj.getExtraAttach());
-        db.insert("mainbody", null, values);
+        db.insertOrThrow("mainbody", null, values);
     }
 
     private void InsertCannon(Cannon obj) {
@@ -344,7 +348,7 @@ public class DAO {
         values.put("attackImageHeight",obj.getAttackImageHeight());
         values.put("attackSound",obj.getAttackSound());
         values.put("damage",obj.getDamage());
-        db.insert("cannon", null, values);
+        db.insertOrThrow("cannon", null, values);
     }
 
     private void InsertExtraPart(ExtraPart obj) {
@@ -353,7 +357,7 @@ public class DAO {
         values.put("imageHeight",obj.getImageHeight());
         values.put("imageWidth",obj.getImageWidth());
         values.put("attachPoint",obj.getAttachPoint());
-        db.insert("extrapart", null, values);
+        db.insertOrThrow("extrapart", null, values);
     }
 
     private void InsertEngine(Engine obj) {
@@ -364,7 +368,7 @@ public class DAO {
         values.put("attachPoint",obj.getAttachPoint());
         values.put("baseSpeed",obj.getBaseSpeed());
         values.put("baseTurnRate",obj.getBaseTurnRate());
-        db.insert("engine", null, values);
+        db.insertOrThrow("engine", null, values);
     }
 
     private void InsertPowerCore(PowerCore obj) {
@@ -372,7 +376,7 @@ public class DAO {
         values.put("image",obj.getImage());
         values.put("cannonBoost",obj.getCannonBoost());
         values.put("engineboost",obj.getEngineBoost());
-        db.insert("powercore", null, values);
+        db.insertOrThrow("powercore", null, values);
     }
 
     private void InsertLevelObject(bgObject obj,int levelId) {
@@ -381,7 +385,7 @@ public class DAO {
         values.put("level_id",levelId);
         values.put("position",obj.getPosition());
         values.put("scale",obj.getScale());
-        db.insert("levelobject", null, values);
+        db.insertOrThrow("levelobject", null, values);
     }
 
     private void InsertLevelAsteroid(bgAsteroid obj,int levelId) {
@@ -389,7 +393,7 @@ public class DAO {
         values.put("asteroid_id",obj.getAsteroidId());
         values.put("level_id",levelId);
         values.put("number",obj.getNumber());
-        db.insert("levelasteroid", null, values);
+        db.insertOrThrow("levelasteroid", null, values);
     }
 
 

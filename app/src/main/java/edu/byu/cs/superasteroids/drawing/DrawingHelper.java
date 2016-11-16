@@ -48,8 +48,6 @@ public class DrawingHelper {
 		Bitmap image = ContentManager.getInstance().getImage(imageId);
         paint.reset();
 		Matrix matrix = new Matrix();
-//		matrix.setTranslate(0, 0);
-//		matrix.setTranslate(-image.getWidth(), -image.getHeight());
 		matrix.setTranslate(-image.getWidth()/2f, -image.getHeight()/2f);
 		matrix.postRotate(rotationDegrees);
 		matrix.postTranslate(x / scaleX, y / scaleY);
